@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C1F83411EA6276A0017CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */; };
+		7C1F83461EA6276A0017CDD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83441EA6276A0017CDD5 /* Main.storyboard */; };
+		7C1F83481EA6276A0017CDD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83471EA6276A0017CDD5 /* Assets.xcassets */; };
+		7C1F834B1EA6276A0017CDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83491EA6276A0017CDD5 /* LaunchScreen.storyboard */; };
+		7C3DA4F01ED2B9B500751DFB /* ModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */; };
+		D1861AA81F2A3CD900DBACF3 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */; };
+		D1861AA91F2A3CD900DBACF3 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */; };
+		D1861AAA1F2A3CD900DBACF3 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1861AA71F2A3CD900DBACF3 /* UI.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7C1F833D1EA6276A0017CDD5 /* PasscodeLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasscodeLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C1F83451EA6276A0017CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C1F83471EA6276A0017CDD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C1F834A1EA6276A0017CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C1F834C1EA6276A0017CDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeViewController.swift; path = PasscodeLock/ModeViewController.swift; sourceTree = SOURCE_ROOT; };
+		D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
+		D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
+		D1861AA71F2A3CD900DBACF3 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C1F833A1EA6276A0017CDD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C1F83341EA6276A0017CDD5 = {
+			isa = PBXGroup;
+			children = (
+				7C1F833F1EA6276A0017CDD5 /* PasscodeLock */,
+				7C1F833E1EA6276A0017CDD5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7C1F833E1EA6276A0017CDD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C1F833D1EA6276A0017CDD5 /* PasscodeLock.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C1F833F1EA6276A0017CDD5 /* PasscodeLock */ = {
+			isa = PBXGroup;
+			children = (
+				D1861AA31F2A3CD900DBACF3 /* Source */,
+				7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */,
+				7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */,
+				7C1F83441EA6276A0017CDD5 /* Main.storyboard */,
+				7C1F83471EA6276A0017CDD5 /* Assets.xcassets */,
+				7C1F83491EA6276A0017CDD5 /* LaunchScreen.storyboard */,
+				7C1F834C1EA6276A0017CDD5 /* Info.plist */,
+			);
+			path = PasscodeLock;
+			sourceTree = "<group>";
+		};
+		D1861AA31F2A3CD900DBACF3 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D1861AA41F2A3CD900DBACF3 /* AppLocker */,
+				D1861AA71F2A3CD900DBACF3 /* UI.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D1861AA41F2A3CD900DBACF3 /* AppLocker */ = {
+			isa = PBXGroup;
+			children = (
+				D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */,
+				D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */,
+			);
+			path = AppLocker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C1F833C1EA6276A0017CDD5 /* PasscodeLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C1F834F1EA6276A0017CDD5 /* Build configuration list for PBXNativeTarget "PasscodeLock" */;
+			buildPhases = (
+				7C1F83391EA6276A0017CDD5 /* Sources */,
+				7C1F833A1EA6276A0017CDD5 /* Frameworks */,
+				7C1F833B1EA6276A0017CDD5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PasscodeLock;
+			productName = PasscodeLock;
+			productReference = 7C1F833D1EA6276A0017CDD5 /* PasscodeLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C1F83351EA6276A0017CDD5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Oleg Ryasnoy";
+				TargetAttributes = {
+					7C1F833C1EA6276A0017CDD5 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 34SL6966R8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7C1F83381EA6276A0017CDD5 /* Build configuration list for PBXProject "PasscodeLock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C1F83341EA6276A0017CDD5;
+			productRefGroup = 7C1F833E1EA6276A0017CDD5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C1F833C1EA6276A0017CDD5 /* PasscodeLock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C1F833B1EA6276A0017CDD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C1F834B1EA6276A0017CDD5 /* LaunchScreen.storyboard in Resources */,
+				7C1F83481EA6276A0017CDD5 /* Assets.xcassets in Resources */,
+				7C1F83461EA6276A0017CDD5 /* Main.storyboard in Resources */,
+				D1861AA91F2A3CD900DBACF3 /* AppLocker.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C1F83391EA6276A0017CDD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C1F83411EA6276A0017CDD5 /* AppDelegate.swift in Sources */,
+				7C3DA4F01ED2B9B500751DFB /* ModeViewController.swift in Sources */,
+				D1861AAA1F2A3CD900DBACF3 /* UI.swift in Sources */,
+				D1861AA81F2A3CD900DBACF3 /* AppLocker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C1F83441EA6276A0017CDD5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C1F83451EA6276A0017CDD5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C1F83491EA6276A0017CDD5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C1F834A1EA6276A0017CDD5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C1F834D1EA6276A0017CDD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C1F834E1EA6276A0017CDD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C1F83501EA6276A0017CDD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 34SL6966R8;
+				INFOPLIST_FILE = PasscodeLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C1F83511EA6276A0017CDD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 34SL6966R8;
+				INFOPLIST_FILE = PasscodeLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C1F83381EA6276A0017CDD5 /* Build configuration list for PBXProject "PasscodeLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C1F834D1EA6276A0017CDD5 /* Debug */,
+				7C1F834E1EA6276A0017CDD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C1F834F1EA6276A0017CDD5 /* Build configuration list for PBXNativeTarget "PasscodeLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C1F83501EA6276A0017CDD5 /* Debug */,
+				7C1F83511EA6276A0017CDD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C1F83351EA6276A0017CDD5 /* Project object */;
+}
