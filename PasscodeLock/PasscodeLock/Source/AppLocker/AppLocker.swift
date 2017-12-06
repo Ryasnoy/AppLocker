@@ -8,11 +8,13 @@
 
 import UIKit
 import AudioToolbox
+import LocalAuthentication
 
 fileprivate enum LockerConstants {
   static let deleteTag = 1000 // Button tag
   static let cancelTag = 1001 // Button tag
   static let kPincode = "pincode" // Key for saving pincode to UserDefaults
+  static let kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
   static let appLockerNib = "AppLocker" // Nib name
   static let maxPinLength = 4 // max pincode lenght characters
   static let animationKeyPath = "transform.translation.x"
@@ -26,6 +28,7 @@ struct LockerConfig { // The structure used to display the controller
   var subtitle: String?
   var image: UIImage?
   var color: UIColor?
+  var isSensorsEnabled: Bool?
 }
 
 enum LockerMode { // Modes for AppLocker
@@ -48,20 +51,13 @@ class AppLocker: UIViewController {
   @IBOutlet var pinIndicators: [Indicator]!
   
   // Pincode
+  fileprivate var context = LAContext()
   fileprivate var pin = "" // Entered pincode
   fileprivate var reservedPin = "" // Reserve pincode for confirm
   fileprivate var isNeedConfirm = true // Confirmation for create mode
-  fileprivate var savedPin: String {
+  fileprivate var savedPin: String? {
     get { // Get saved pincode
-      /*
-       *****************WARNING******************
-       "" - Used if the pincode does not exist.
-       In the event of an accident call of mods,
-       such as Validate / Change / Desactive,
-       the program will be prevented from falling
-       ******************************************
-       */
-      return UserDefaults.standard.object(forKey: LockerConstants.kPincode) as? String ?? ""
+      return UserDefaults.standard.string(forKey: LockerConstants.kPincode)
     }
     set { // Set pincode to UserDefaults
       UserDefaults.standard.set(newValue, forKey: LockerConstants.kPincode)
@@ -91,22 +87,22 @@ class AppLocker: UIViewController {
     submessageLabel.text = "Create your passcode"
   }
   
-  fileprivate func viewMasker(_ isMasked: Bool, complete: @escaping ()->()) { // Fill or cancel fill for indicators
+  fileprivate func indicatorChangeState(isNeedClear isMasked: Bool, tag: Int? = nil) { // Fill or cancel fill for indicators
     let results = pinIndicators.filter { $0.isMasked == isMasked }
     let pinView = isMasked ? results.last : results.first
     pinView?.isMasked = !isMasked
     
     UIView.animate(withDuration: LockerConstants.indicatorDuration, animations: {
       pinView?.backgroundColor = isMasked ? .clear : .white
-    }) { isComplete in
-      complete()
+    }) { _ in
+      isMasked ? self.pin = String(self.pin.dropLast()) : self.pincodeChecker(tag ?? 0)
     }
   }
   
   fileprivate func pincodeChecker(_ pinNumber: Int) {
-    if pin.characters.count < LockerConstants.maxPinLength { // Check on limit pin
+    if pin.count < LockerConstants.maxPinLength { // Check on limit pin
       pin.append("\(pinNumber)") // Append number to pincode
-      if pin.characters.count == LockerConstants.maxPinLength { // Check if pincode reached the limit
+      if pin.count == LockerConstants.maxPinLength { // Check if pincode reached the limit
         switch mode! {
         case .create:
           createMode()
@@ -160,17 +156,17 @@ class AppLocker: UIViewController {
   }
   
   fileprivate func incorrectPinAnimation() {
-    for view in self.pinIndicators {
-      self.shake(view)
+    for view in pinIndicators {
+      shake(view)
       view.backgroundColor = .clear
     }
     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
   }
   
   fileprivate func clearView() {
-    for view in self.pinIndicators {
+    for view in pinIndicators {
       view.isMasked = false
-      self.pin = ""
+      pin = ""
       UIView.animate(withDuration: LockerConstants.indicatorDuration, animations: {
         view.backgroundColor = .clear
       })
@@ -187,20 +183,41 @@ class AppLocker: UIViewController {
     view.layer.add(animation, forKey: LockerConstants.shakeAnimation)
   }
   
+  // MARK: - Touch ID / Face ID
+  fileprivate func checkSensors() {
+    guard mode == .validate else {return}
+    
+    var policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics // iOS 8+ users with Biometric and Custom (Fallback button) verification
+    
+    // Depending the iOS version we'll need to choose the policy we are able to use
+    if #available(iOS 9.0, *) {
+      // iOS 9+ users with Biometric and Passcode verification
+      policy = .deviceOwnerAuthentication
+    }
+    
+    var err: NSError?
+    // Check if the user is able to use the policy we've selected previously
+    guard context.canEvaluatePolicy(policy, error: &err) else {return}
+    
+    // The user is able to use his/her Touch ID / Face ID 👍
+    context.evaluatePolicy(policy, localizedReason: LockerConstants.kLocalizedReason, reply: {  success, error in
+      if success {
+        self.dismiss(animated: true, completion: nil)
+      }
+    })
+    
+  }
+  
   // MARK: - Keyboard
   @IBAction func keyboardPressed(_ sender: UIButton) {
     switch sender.tag {
     case LockerConstants.deleteTag:
-      viewMasker(true, complete: {
-        self.pin = String(self.pin.characters.dropLast())
-      })
+      indicatorChangeState(isNeedClear: true)
     case LockerConstants.cancelTag:
       clearView()
       dismiss(animated: true, completion: nil)
     default:
-      viewMasker(false, complete: {
-        self.pincodeChecker(sender.tag)
-      })
+      indicatorChangeState(isNeedClear: false, tag: sender.tag)
     }
   }
   
@@ -209,9 +226,8 @@ class AppLocker: UIViewController {
 // MARK: - CAAnimationDelegate
 extension AppLocker: CAAnimationDelegate {
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-    if flag {
-      clearView()
-    }
+    guard flag else {return}
+    clearView()
   }
   
 }
@@ -229,6 +245,10 @@ extension AppLocker {
       appLocker.messageLabel.text = config?.title ?? ""
       
       appLocker.mode = mode
+      
+      if let isSensorsEnabled = config?.isSensorsEnabled, isSensorsEnabled {
+        appLocker.checkSensors()
+      }
       
       if let image = config?.image {
         appLocker.photoImageView.image = image

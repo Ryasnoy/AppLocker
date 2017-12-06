@@ -9,8 +9,6 @@
 import UIKit
 
 class ModeViewController: UIViewController {
-  
-  var mode: LockerMode!
 
   @IBAction func createMode(_ sender: UIButton) {
     pin(.create)
@@ -33,6 +31,7 @@ class ModeViewController: UIViewController {
     var config = LockerConfig()
     config.image = UIImage(named: "face")!
     config.title = "Devios Ryasnoy"
+    config.isSensorsEnabled = true
     
     AppLocker.present(with: mode, and: config)
   }
