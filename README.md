@@ -13,7 +13,7 @@ Very simple locker for your `iOS` application
 
 ### Modes
 ```swift
-enum LockerMode { // Modes for AppLocker
+enum ALMode { // Modes for AppLocker
   case validate
   case change
   case desactive
@@ -23,11 +23,12 @@ enum LockerMode { // Modes for AppLocker
 
 ### Configuration
 ```swift
-struct LockerConfig { // The structure used to display the controller
+struct ALAppearance { // The structure used to display the controller
   var title: String?
   var subtitle: String?
   var image: UIImage?
   var color: UIColor?
+  var isSensorsEnabled: Bool?
 }
 ```
 
@@ -39,13 +40,12 @@ AppLocker.present(with: .create) // validate, desactive, change
 ```
 #### Calling the controller with configuration
 ```swift
-var config = LockerConfig()
-    config.image = UIImage(named: "face")!
-    config.title = "Devios Ryasnoy"
-    config.color = .black
-    config.subtitle = "Hello World"
-    
-    AppLocker.present(with: .create, and: config)
+    var appearance = ALAppearance()
+    appearance.image = UIImage(named: "face")!
+    appearance.title = "Devios Ryasnoy"
+    appearance.isSensorsEnabled = true
+
+    AppLocker.present(with: mode, and: appearance)
 ```
 
 ## Requirements
