@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r0k-Kp-WSv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r0k-Kp-WSv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qs-i3-GTl">
                                 <rect key="frame" x="147.5" y="120" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="bpd-kj-Kfp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="bpd-kj-Kfp"/>
                                     <constraint firstAttribute="height" constant="80" id="xjq-u9-ofL"/>
                                 </constraints>
                                 <state key="normal" title="Create"/>
@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oX-gg-R8q">
                                 <rect key="frame" x="147.5" y="208" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Ta8-3Z-ExU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Ta8-3Z-ExU"/>
                                     <constraint firstAttribute="height" constant="80" id="aCg-MU-EJL"/>
                                 </constraints>
                                 <state key="normal" title="Change"/>
@@ -46,18 +46,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqD-3d-kRB">
                                 <rect key="frame" x="147.5" y="296" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Rt9-0M-YeQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Rt9-0M-YeQ"/>
                                     <constraint firstAttribute="height" constant="80" id="fQl-O0-LzK"/>
                                 </constraints>
-                                <state key="normal" title="Desactive"/>
+                                <state key="normal" title="Deactive"/>
                                 <connections>
-                                    <action selector="desactiveMode:" destination="r0k-Kp-WSv" eventType="touchUpInside" id="5Lq-Zf-n70"/>
+                                    <action selector="deactiveMode:" destination="r0k-Kp-WSv" eventType="touchUpInside" id="epy-zP-xW5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gd6-Gw-rcM">
                                 <rect key="frame" x="147.5" y="384" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="5lY-2V-Oi7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5lY-2V-Oi7"/>
                                     <constraint firstAttribute="height" constant="80" id="Qgd-Nd-ZXg"/>
                                 </constraints>
                                 <state key="normal" title="Validate"/>

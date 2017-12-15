@@ -1,5 +1,5 @@
 //
-//  AppLocker.swift
+//  AppALConstants.swift
 //  AppLocker
 //
 //  Created by Oleg Ryasnoy on 07.07.17.
@@ -10,20 +10,20 @@ import UIKit
 import AudioToolbox
 import LocalAuthentication
 
-fileprivate enum LockerConstants {
-  static let deleteTag = 1000 // Button tag
-  static let cancelTag = 1001 // Button tag
+enum ALConstants {
+  static let nibName = "AppLocker"
   static let kPincode = "pincode" // Key for saving pincode to UserDefaults
   static let kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
-  static let appLockerNib = "AppLocker" // Nib name
-  static let maxPinLength = 4 // max pincode lenght characters
-  static let animationKeyPath = "transform.translation.x"
-  static let shakeAnimation = "shake"
-  static let shakeDuration = 0.6
-  static let indicatorDuration = 0.3
+  static let duration = 0.3 // Duration of indicator filling
+  static let maxPinLength = 4
+  
+  enum button: Int {
+    case delete = 1000
+    case cancel = 1001
+  }
 }
 
-struct LockerConfig { // The structure used to display the controller
+struct ALAppearance { // The structure used to display the controller
   var title: String?
   var subtitle: String?
   var image: UIImage?
@@ -31,52 +31,51 @@ struct LockerConfig { // The structure used to display the controller
   var isSensorsEnabled: Bool?
 }
 
-enum LockerMode { // Modes for AppLocker
+enum ALMode { // Modes for AppLocker
   case validate
   case change
-  case desactive
+  case deactive
   case create
 }
 
 class AppLocker: UIViewController {
   
-  // Top view
+  // MARK: - Top view
   @IBOutlet weak var photoImageView: UIImageView!
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet weak var submessageLabel: UILabel!
+  @IBOutlet var pinIndicators: [Indicator]!
   
   @IBOutlet weak var cancelButton: Button!
   
-  // Rounded pin indicators
-  @IBOutlet var pinIndicators: [Indicator]!
-  
-  // Pincode
-  fileprivate var context = LAContext()
+  // MARK: - Pincode
+  fileprivate let context = LAContext()
   fileprivate var pin = "" // Entered pincode
   fileprivate var reservedPin = "" // Reserve pincode for confirm
-  fileprivate var isNeedConfirm = true // Confirmation for create mode
+  fileprivate var isFirstCreationStep = true
   fileprivate var savedPin: String? {
-    get { // Get saved pincode
-      return UserDefaults.standard.string(forKey: LockerConstants.kPincode)
+    get {
+      return UserDefaults.standard.string(forKey: ALConstants.kPincode)
     }
-    set { // Set pincode to UserDefaults
-      UserDefaults.standard.set(newValue, forKey: LockerConstants.kPincode)
+    set {
+      UserDefaults.standard.set(newValue, forKey: ALConstants.kPincode)
     }
   }
   
-  fileprivate var mode: LockerMode! {
+  fileprivate var mode: ALMode? {
     didSet {
-      switch mode! {
+      let mode = self.mode ?? .validate
+      switch mode {
       case .create:
         submessageLabel.text = "Create your passcode" // Your submessage for create mode
       case .change:
         submessageLabel.text = "Enter your passcode" // Your submessage for change mode
-      case .desactive:
-        submessageLabel.text = "Enter your passcode" // Your submessage for desactive mode
+      case .deactive:
+        submessageLabel.text = "Enter your passcode" // Your submessage for deactive mode
       case .validate:
         submessageLabel.text = "Enter your passcode" // Your submessage for validate mode
         cancelButton.isHidden = true
-        isNeedConfirm = false
+        isFirstCreationStep = false
       }
     }
   }
@@ -84,43 +83,42 @@ class AppLocker: UIViewController {
   fileprivate func precreateSettings () { // Precreate settings for change mode
     mode = .create
     clearView()
-    submessageLabel.text = "Create your passcode"
   }
   
-  fileprivate func indicatorChangeState(isNeedClear isMasked: Bool, tag: Int? = nil) { // Fill or cancel fill for indicators
-    let results = pinIndicators.filter { $0.isMasked == isMasked }
-    let pinView = isMasked ? results.last : results.first
-    pinView?.isMasked = !isMasked
+  fileprivate func drawing(isNeedClear: Bool, tag: Int? = nil) { // Fill or cancel fill for indicators
+    let results = pinIndicators.filter { $0.isNeedClear == isNeedClear }
+    let pinView = isNeedClear ? results.last : results.first
+    pinView?.isNeedClear = !isNeedClear
     
-    UIView.animate(withDuration: LockerConstants.indicatorDuration, animations: {
-      pinView?.backgroundColor = isMasked ? .clear : .white
+    UIView.animate(withDuration: ALConstants.duration, animations: {
+      pinView?.backgroundColor = isNeedClear ? .clear : .white
     }) { _ in
-      isMasked ? self.pin = String(self.pin.dropLast()) : self.pincodeChecker(tag ?? 0)
+      isNeedClear ? self.pin = String(self.pin.dropLast()) : self.pincodeChecker(tag ?? 0)
     }
   }
   
   fileprivate func pincodeChecker(_ pinNumber: Int) {
-    if pin.count < LockerConstants.maxPinLength { // Check on limit pin
-      pin.append("\(pinNumber)") // Append number to pincode
-      if pin.count == LockerConstants.maxPinLength { // Check if pincode reached the limit
-        switch mode! {
+    if pin.count < ALConstants.maxPinLength {
+      pin.append("\(pinNumber)")
+      if pin.count == ALConstants.maxPinLength {
+        switch mode ?? .validate {
         case .create:
-          createMode()
+          createModeAction()
         case .change:
-          changeMode()
-        case .desactive:
-          desactiveMode()
+          changeModeAction()
+        case .deactive:
+          deactiveModeAction()
         case .validate:
-          validateMode()
+          validateModeAction()
         }
       }
     }
   }
   
   // MARK: - Modes
-  fileprivate func createMode() {
-    if isNeedConfirm {
-      isNeedConfirm = false
+  fileprivate func createModeAction() {
+    if isFirstCreationStep {
+      isFirstCreationStep = false
       reservedPin = pin
       clearView()
       submessageLabel.text = "Confirm your pincode"
@@ -129,20 +127,20 @@ class AppLocker: UIViewController {
     }
   }
   
-  fileprivate func changeMode() {
-    pin == savedPin ? precreateSettings () : incorrectPinAnimation()
+  fileprivate func changeModeAction() {
+    pin == savedPin ? precreateSettings() : incorrectPinAnimation()
   }
   
-  fileprivate func desactiveMode() {
+  fileprivate func deactiveModeAction() {
     pin == savedPin ? removePin() : incorrectPinAnimation()
   }
   
-  fileprivate func validateMode() {
+  fileprivate func validateModeAction() {
     pin == savedPin ? dismiss(animated: true, completion: nil) : incorrectPinAnimation()
   }
   
   fileprivate func removePin() {
-    UserDefaults.standard.removeObject(forKey: LockerConstants.kPincode)
+    UserDefaults.standard.removeObject(forKey: ALConstants.kPincode)
     dismiss(animated: true, completion: nil)
   }
   
@@ -156,31 +154,21 @@ class AppLocker: UIViewController {
   }
   
   fileprivate func incorrectPinAnimation() {
-    for view in pinIndicators {
-      shake(view)
+    pinIndicators.forEach { view in
+      view.shake(delegate: self)
       view.backgroundColor = .clear
     }
     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
   }
   
   fileprivate func clearView() {
-    for view in pinIndicators {
-      view.isMasked = false
-      pin = ""
-      UIView.animate(withDuration: LockerConstants.indicatorDuration, animations: {
+    pin = ""
+    pinIndicators.forEach { view in
+      view.isNeedClear = false
+      UIView.animate(withDuration: ALConstants.duration, animations: {
         view.backgroundColor = .clear
       })
     }
-  }
-  
-  // MARK: - Animation
-  fileprivate func shake(_ view: Indicator) {
-    let animation = CAKeyframeAnimation(keyPath: LockerConstants.animationKeyPath)
-    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-    animation.duration = LockerConstants.shakeDuration
-    animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
-    animation.delegate = self
-    view.layer.add(animation, forKey: LockerConstants.shakeAnimation)
   }
   
   // MARK: - Touch ID / Face ID
@@ -200,24 +188,23 @@ class AppLocker: UIViewController {
     guard context.canEvaluatePolicy(policy, error: &err) else {return}
     
     // The user is able to use his/her Touch ID / Face ID 👍
-    context.evaluatePolicy(policy, localizedReason: LockerConstants.kLocalizedReason, reply: {  success, error in
+    context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
       if success {
         self.dismiss(animated: true, completion: nil)
       }
     })
-    
   }
   
   // MARK: - Keyboard
   @IBAction func keyboardPressed(_ sender: UIButton) {
     switch sender.tag {
-    case LockerConstants.deleteTag:
-      indicatorChangeState(isNeedClear: true)
-    case LockerConstants.cancelTag:
+    case ALConstants.button.delete.rawValue:
+      drawing(isNeedClear: true)
+    case ALConstants.button.cancel.rawValue:
       clearView()
       dismiss(animated: true, completion: nil)
     default:
-      indicatorChangeState(isNeedClear: false, tag: sender.tag)
+      drawing(isNeedClear: false, tag: sender.tag)
     }
   }
   
@@ -226,45 +213,33 @@ class AppLocker: UIViewController {
 // MARK: - CAAnimationDelegate
 extension AppLocker: CAAnimationDelegate {
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-    guard flag else {return}
     clearView()
   }
-  
 }
 
 // MARK: - Present
 extension AppLocker {
-  // You can set nil for default values
   // Present AppLocker
-  class func present(with mode: LockerMode, and config: LockerConfig? = nil) {
-    
-    if let appLocker = Bundle.main.loadNibNamed(LockerConstants.appLockerNib,
-                                                owner: self,
-                                                options: nil)?.first as? AppLocker {
-      
-      appLocker.messageLabel.text = config?.title ?? ""
-      
-      appLocker.mode = mode
-      
-      if let isSensorsEnabled = config?.isSensorsEnabled, isSensorsEnabled {
-        appLocker.checkSensors()
-      }
-      
-      if let image = config?.image {
-        appLocker.photoImageView.image = image
-      } else {
-        appLocker.photoImageView.isHidden = true
-      }
-      
-      if let subtitle = config?.subtitle {
-        appLocker.submessageLabel.text = subtitle
-      }
-      
-      if let color = config?.color {
-        appLocker.view.backgroundColor = color
-      }      
-      UIApplication.shared.keyWindow?.rootViewController?.present(appLocker, animated: true, completion: nil)
+  class func present(with mode: ALMode, and config: ALAppearance? = nil) {
+    guard let root = UIApplication.shared.keyWindow?.rootViewController,
+      let locker = Bundle.main.loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
+        return
     }
+    locker.messageLabel.text = config?.title ?? ""
+    locker.submessageLabel.text = config?.subtitle ?? ""
+    locker.view.backgroundColor = config?.color ?? .black
+    locker.mode = mode
+    
+    if config?.isSensorsEnabled ?? false {
+      locker.checkSensors()
+    }
+    
+    if let image = config?.image {
+      locker.photoImageView.image = image
+    } else {
+      locker.photoImageView.isHidden = true
+    }
+    
+    root.present(locker, animated: true, completion: nil)
   }
-  
 }

@@ -18,22 +18,22 @@ class ModeViewController: UIViewController {
     pin(.change)
   }
   
-  @IBAction func desactiveMode(_ sender: UIButton) {
-    pin(.desactive)
+  @IBAction func deactiveMode(_ sender: UIButton) {
+    pin(.deactive)
   }
   
   @IBAction func validateMode(_ sender: UIButton) {
     pin(.validate)
   }
   
-  func pin(_ mode: LockerMode) {
+  func pin(_ mode: ALMode) {
     
-    var config = LockerConfig()
-    config.image = UIImage(named: "face")!
-    config.title = "Devios Ryasnoy"
-    config.isSensorsEnabled = true
+    var appearance = ALAppearance()
+    appearance.image = UIImage(named: "face")!
+    appearance.title = "Devios Ryasnoy"
+    appearance.isSensorsEnabled = true
     
-    AppLocker.present(with: mode, and: config)
+    AppLocker.present(with: mode, and: appearance)
   }
 
 }
