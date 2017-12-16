@@ -16,7 +16,7 @@ Very simple locker for your `iOS` application
 enum ALMode { // Modes for AppLocker
   case validate
   case change
-  case desactive
+  case deactive
   case create
 }
 ```
