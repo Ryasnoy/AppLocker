@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4049659F20ADA33B00AB90B4 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049659C20ADA33B00AB90B4 /* AppLocker.swift */; };
+		404965A020ADA33B00AB90B4 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4049659D20ADA33B00AB90B4 /* AppLocker.xib */; };
+		404965A120ADA33B00AB90B4 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049659E20ADA33B00AB90B4 /* UI.swift */; };
 		7C1F83411EA6276A0017CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */; };
 		7C1F83461EA6276A0017CDD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83441EA6276A0017CDD5 /* Main.storyboard */; };
 		7C1F83481EA6276A0017CDD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83471EA6276A0017CDD5 /* Assets.xcassets */; };
 		7C1F834B1EA6276A0017CDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83491EA6276A0017CDD5 /* LaunchScreen.storyboard */; };
 		7C3DA4F01ED2B9B500751DFB /* ModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */; };
-		D1861AA81F2A3CD900DBACF3 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */; };
-		D1861AA91F2A3CD900DBACF3 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */; };
-		D1861AAA1F2A3CD900DBACF3 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1861AA71F2A3CD900DBACF3 /* UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4049659C20ADA33B00AB90B4 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
+		4049659D20ADA33B00AB90B4 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
+		4049659E20ADA33B00AB90B4 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		7C1F833D1EA6276A0017CDD5 /* PasscodeLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasscodeLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1F83451EA6276A0017CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -25,9 +28,6 @@
 		7C1F834A1EA6276A0017CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C1F834C1EA6276A0017CDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeViewController.swift; path = PasscodeLock/ModeViewController.swift; sourceTree = SOURCE_ROOT; };
-		D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
-		D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
-		D1861AA71F2A3CD900DBACF3 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +41,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4049659A20ADA33B00AB90B4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4049659B20ADA33B00AB90B4 /* AppLocker */,
+				4049659E20ADA33B00AB90B4 /* UI.swift */,
+			);
+			name = Source;
+			path = ../../Source;
+			sourceTree = "<group>";
+		};
+		4049659B20ADA33B00AB90B4 /* AppLocker */ = {
+			isa = PBXGroup;
+			children = (
+				4049659C20ADA33B00AB90B4 /* AppLocker.swift */,
+				4049659D20ADA33B00AB90B4 /* AppLocker.xib */,
+			);
+			path = AppLocker;
+			sourceTree = "<group>";
+		};
 		7C1F83341EA6276A0017CDD5 = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +79,7 @@
 		7C1F833F1EA6276A0017CDD5 /* PasscodeLock */ = {
 			isa = PBXGroup;
 			children = (
-				D1861AA31F2A3CD900DBACF3 /* Source */,
+				4049659A20ADA33B00AB90B4 /* Source */,
 				7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */,
 				7C1F83401EA6276A0017CDD5 /* AppDelegate.swift */,
 				7C1F83441EA6276A0017CDD5 /* Main.storyboard */,
@@ -69,24 +88,6 @@
 				7C1F834C1EA6276A0017CDD5 /* Info.plist */,
 			);
 			path = PasscodeLock;
-			sourceTree = "<group>";
-		};
-		D1861AA31F2A3CD900DBACF3 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				D1861AA41F2A3CD900DBACF3 /* AppLocker */,
-				D1861AA71F2A3CD900DBACF3 /* UI.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		D1861AA41F2A3CD900DBACF3 /* AppLocker */ = {
-			isa = PBXGroup;
-			children = (
-				D1861AA51F2A3CD900DBACF3 /* AppLocker.swift */,
-				D1861AA61F2A3CD900DBACF3 /* AppLocker.xib */,
-			);
-			path = AppLocker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +154,7 @@
 				7C1F834B1EA6276A0017CDD5 /* LaunchScreen.storyboard in Resources */,
 				7C1F83481EA6276A0017CDD5 /* Assets.xcassets in Resources */,
 				7C1F83461EA6276A0017CDD5 /* Main.storyboard in Resources */,
-				D1861AA91F2A3CD900DBACF3 /* AppLocker.xib in Resources */,
+				404965A020ADA33B00AB90B4 /* AppLocker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,9 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C1F83411EA6276A0017CDD5 /* AppDelegate.swift in Sources */,
+				404965A120ADA33B00AB90B4 /* UI.swift in Sources */,
 				7C3DA4F01ED2B9B500751DFB /* ModeViewController.swift in Sources */,
-				D1861AAA1F2A3CD900DBACF3 /* UI.swift in Sources */,
-				D1861AA81F2A3CD900DBACF3 /* AppLocker.swift in Sources */,
+				4049659F20ADA33B00AB90B4 /* AppLocker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
