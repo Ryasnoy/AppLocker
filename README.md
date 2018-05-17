@@ -1,6 +1,7 @@
 ![](https://github.com/ryasnoy/AppLocker/raw/master/AppLockerLogo.png)
 
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
+![CocoaPods](https://img.shields.io/cocoapods/v/AFNetworking.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org)
 [![Platform](http://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 [![Twitter](https://img.shields.io/badge/twitter-@ryasn0y-blue.svg?maxAge=2592000)](http://twitter.com/ryasn0y)
@@ -53,6 +54,11 @@ AppLocker is written in Swift 3. iOS 8.0+ Required
 
 ## Installation
 Just move the `Source` folder to your project
+
+## CocoaPods
+```
+  pod 'AppLocker'
+```
 
 ## Author
 
