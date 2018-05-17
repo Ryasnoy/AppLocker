@@ -10,7 +10,7 @@ import UIKit
 import AudioToolbox
 import LocalAuthentication
 
-enum ALConstants {
+public enum ALConstants {
   static let nibName = "AppLocker"
   static let kPincode = "pincode" // Key for saving pincode to UserDefaults
   static let kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
@@ -23,7 +23,7 @@ enum ALConstants {
   }
 }
 
-struct ALAppearance { // The structure used to display the controller
+public struct ALAppearance { // The structure used to display the controller
   var title: String?
   var subtitle: String?
   var image: UIImage?
@@ -31,14 +31,14 @@ struct ALAppearance { // The structure used to display the controller
   var isSensorsEnabled: Bool?
 }
 
-enum ALMode { // Modes for AppLocker
+public enum ALMode { // Modes for AppLocker
   case validate
   case change
   case deactive
   case create
 }
 
-class AppLocker: UIViewController {
+public class AppLocker: UIViewController {
   
   // MARK: - Top view
   @IBOutlet weak var photoImageView: UIImageView!
@@ -49,11 +49,11 @@ class AppLocker: UIViewController {
   @IBOutlet weak var cancelButton: Button!
   
   // MARK: - Pincode
-  fileprivate let context = LAContext()
-  fileprivate var pin = "" // Entered pincode
-  fileprivate var reservedPin = "" // Reserve pincode for confirm
-  fileprivate var isFirstCreationStep = true
-  fileprivate var savedPin: String? {
+  private let context = LAContext()
+  private var pin = "" // Entered pincode
+  private var reservedPin = "" // Reserve pincode for confirm
+  private var isFirstCreationStep = true
+  private var savedPin: String? {
     get {
       return UserDefaults.standard.string(forKey: ALConstants.kPincode)
     }
@@ -80,12 +80,12 @@ class AppLocker: UIViewController {
     }
   }
   
-  fileprivate func precreateSettings () { // Precreate settings for change mode
+  private func precreateSettings () { // Precreate settings for change mode
     mode = .create
     clearView()
   }
   
-  fileprivate func drawing(isNeedClear: Bool, tag: Int? = nil) { // Fill or cancel fill for indicators
+  private func drawing(isNeedClear: Bool, tag: Int? = nil) { // Fill or cancel fill for indicators
     let results = pinIndicators.filter { $0.isNeedClear == isNeedClear }
     let pinView = isNeedClear ? results.last : results.first
     pinView?.isNeedClear = !isNeedClear
@@ -97,7 +97,7 @@ class AppLocker: UIViewController {
     }
   }
   
-  fileprivate func pincodeChecker(_ pinNumber: Int) {
+  private func pincodeChecker(_ pinNumber: Int) {
     if pin.count < ALConstants.maxPinLength {
       pin.append("\(pinNumber)")
       if pin.count == ALConstants.maxPinLength {
@@ -116,7 +116,7 @@ class AppLocker: UIViewController {
   }
   
   // MARK: - Modes
-  fileprivate func createModeAction() {
+  private func createModeAction() {
     if isFirstCreationStep {
       isFirstCreationStep = false
       reservedPin = pin
@@ -127,24 +127,24 @@ class AppLocker: UIViewController {
     }
   }
   
-  fileprivate func changeModeAction() {
+  private func changeModeAction() {
     pin == savedPin ? precreateSettings() : incorrectPinAnimation()
   }
   
-  fileprivate func deactiveModeAction() {
+  private func deactiveModeAction() {
     pin == savedPin ? removePin() : incorrectPinAnimation()
   }
   
-  fileprivate func validateModeAction() {
+  private func validateModeAction() {
     pin == savedPin ? dismiss(animated: true, completion: nil) : incorrectPinAnimation()
   }
   
-  fileprivate func removePin() {
+  private func removePin() {
     UserDefaults.standard.removeObject(forKey: ALConstants.kPincode)
     dismiss(animated: true, completion: nil)
   }
   
-  fileprivate func confirmPin() {
+  private func confirmPin() {
     if pin == reservedPin {
       savedPin = pin
       dismiss(animated: true, completion: nil)
@@ -153,7 +153,7 @@ class AppLocker: UIViewController {
     }
   }
   
-  fileprivate func incorrectPinAnimation() {
+  private func incorrectPinAnimation() {
     pinIndicators.forEach { view in
       view.shake(delegate: self)
       view.backgroundColor = .clear
@@ -212,17 +212,18 @@ class AppLocker: UIViewController {
 
 // MARK: - CAAnimationDelegate
 extension AppLocker: CAAnimationDelegate {
-  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+  public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     clearView()
   }
 }
 
 // MARK: - Present
-extension AppLocker {
+public extension AppLocker {
   // Present AppLocker
   class func present(with mode: ALMode, and config: ALAppearance? = nil) {
     guard let root = UIApplication.shared.keyWindow?.rootViewController,
-      let locker = Bundle.main.loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
+
+      let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
         return
     }
     locker.messageLabel.text = config?.title ?? ""

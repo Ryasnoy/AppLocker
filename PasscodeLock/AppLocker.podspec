@@ -19,7 +19,7 @@ AppLocker - simple lock screen for iOS Application
   s.social_media_url   = "http://twitter.com/ryasn0y"
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/Ryasnoy/AppLocker.git", :tag => "#{s.version}" }
-  s.source_files = "Source/*.{xib,swift}"
+  s.source_files = "Source/**/*.{xib,swift}"
 
   #s.exclude_files = "Classes/Exclude"
 
