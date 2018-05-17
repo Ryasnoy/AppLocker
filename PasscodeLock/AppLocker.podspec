@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AppLocker"
-  s.version      = "0.0.1"
+  s.version      = "1.0"
   s.summary      = "Simple lockscreen for iOS Application"
 
   s.description  = <<-DESC
