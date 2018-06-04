@@ -24,11 +24,12 @@ public enum ALConstants {
 }
 
 public struct ALAppearance { // The structure used to display the controller
-  var title: String?
-  var subtitle: String?
-  var image: UIImage?
-  var color: UIColor?
-  var isSensorsEnabled: Bool?
+  public var title: String?
+  public var subtitle: String?
+  public var image: UIImage?
+  public var color: UIColor?
+  public var isSensorsEnabled: Bool?
+  public init() {}
 }
 
 public enum ALMode { // Modes for AppLocker
