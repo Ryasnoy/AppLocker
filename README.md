@@ -37,7 +37,7 @@ struct ALAppearance { // The structure used to display the controller
 ### Example
 #### Simple call of controller
 ```swift
-AppLocker.present(with: .create) // validate, desactive, change
+AppLocker.present(with: .create) // validate, deactive, change
 ```
 #### Calling the controller with configuration
 ```swift
