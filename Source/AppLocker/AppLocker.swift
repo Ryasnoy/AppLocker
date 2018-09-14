@@ -47,7 +47,7 @@ public class AppLocker: UIViewController {
   @IBOutlet weak var submessageLabel: UILabel!
   @IBOutlet var pinIndicators: [Indicator]!
   
-  @IBOutlet weak var cancelButton: Button!
+  @IBOutlet weak var cancelButton: UIButton!
   
   // MARK: - Pincode
   private let context = LAContext()
