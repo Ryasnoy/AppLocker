@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033EA5AA21A7C79600703335 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033EA5A921A7C79600703335 /* Valet.framework */; };
 		4005D13420ADC12C00514F4D /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4005D13120ADC12C00514F4D /* AppLocker.swift */; };
 		4005D13520ADC12C00514F4D /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4005D13220ADC12C00514F4D /* AppLocker.xib */; };
 		4005D13620ADC12C00514F4D /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4005D13320ADC12C00514F4D /* UI.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033EA5A921A7C79600703335 /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		4005D13120ADC12C00514F4D /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
 		4005D13220ADC12C00514F4D /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
 		4005D13320ADC12C00514F4D /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
@@ -35,12 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033EA5AA21A7C79600703335 /* Valet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033EA5A521A7C24800703335 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				033EA5A921A7C79600703335 /* Valet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4005D12F20ADC12C00514F4D /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +76,7 @@
 			children = (
 				7C1F833F1EA6276A0017CDD5 /* PasscodeLock */,
 				7C1F833E1EA6276A0017CDD5 /* Products */,
+				033EA5A521A7C24800703335 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +112,7 @@
 				7C1F83391EA6276A0017CDD5 /* Sources */,
 				7C1F833A1EA6276A0017CDD5 /* Frameworks */,
 				7C1F833B1EA6276A0017CDD5 /* Resources */,
+				033EA5A421A7C20600703335 /* Run Script (Carthage) */,
 			);
 			buildRules = (
 			);
@@ -159,6 +172,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		033EA5A421A7C20600703335 /* Run Script (Carthage) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+			);
+			name = "Run Script (Carthage)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7C1F83391EA6276A0017CDD5 /* Sources */ = {
@@ -306,12 +342,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34SL6966R8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PasscodeLock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -322,12 +362,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34SL6966R8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PasscodeLock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
