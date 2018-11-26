@@ -59,6 +59,10 @@ Just move the `Source` folder to your project
 ```
   pod 'AppLocker'
 ```
+For iOS 8.0
+```
+  pod 'AppLocker', ~> '1.0.1'
+ ```
 
 ## Author
 
