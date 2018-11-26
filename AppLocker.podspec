@@ -17,9 +17,11 @@ AppLocker - simple lock screen for iOS Application
  
   s.author             = { "Oleg Ryasnoy" => "ryasnoy.oleg@gmail.com" }
   s.social_media_url   = "http://twitter.com/ryasn0y"
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/Ryasnoy/AppLocker.git", :tag => "#{s.version}" }
   s.source_files = "Source/**/*.{xib,swift}"
+
+  s.dependency 'Valet'
 
   s.swift_version = '4.0'	
 
