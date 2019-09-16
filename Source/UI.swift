@@ -41,7 +41,7 @@ extension UIView {
         let shakeAnimation = "shake"
         let duration = 0.6
         let animation = CAKeyframeAnimation(keyPath: animationKeyPath)
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         animation.delegate = delegate
