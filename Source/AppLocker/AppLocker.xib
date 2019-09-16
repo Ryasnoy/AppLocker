@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,33 +23,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4o-Ks-4Ii">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVx-18-l1J">
-                                <rect key="frame" x="144" y="43.5" width="88" height="88.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVx-18-l1J" customClass="PhotoImageView" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="143.5" y="43.5" width="88" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hVx-18-l1J" secondAttribute="height" multiplier="1:1" id="wcK-td-OD3"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiA-iv-5oK">
-                                <rect key="frame" x="20" y="140" width="335" height="23"/>
+                                <rect key="frame" x="20" y="139.5" width="335" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kS-ba-3rR">
-                                <rect key="frame" x="8" y="199" width="359" height="27.5"/>
+                                <rect key="frame" x="8" y="199" width="359" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y48-OI-bV6" userLabel="first" customClass="Indicator" customModule="PasscodeLock" customModuleProvider="target">
-                                        <rect key="frame" x="121" y="7" width="14" height="14"/>
+                                        <rect key="frame" x="121.5" y="7" width="14" height="14"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="y48-OI-bV6" secondAttribute="height" multiplier="1:1" id="cHE-Dp-W1T"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EvL-fK-aNd" userLabel="second" customClass="Indicator" customModule="PasscodeLock" customModuleProvider="target">
                                         <rect key="frame" x="155.5" y="7" width="14" height="14"/>
@@ -60,9 +51,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EvL-fK-aNd" secondAttribute="height" multiplier="1:1" id="mWJ-SV-lPQ"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ty0-rX-vyo" userLabel="third" customClass="Indicator" customModule="PasscodeLock" customModuleProvider="target">
                                         <rect key="frame" x="189.5" y="7" width="14" height="14"/>
@@ -70,19 +58,13 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ty0-rX-vyo" secondAttribute="height" multiplier="1:1" id="Bb2-Nk-aDy"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQv-Y6-U7g" userLabel="four" customClass="Indicator" customModule="PasscodeLock" customModuleProvider="target">
-                                        <rect key="frame" x="223" y="7" width="14" height="14"/>
+                                        <rect key="frame" x="223.5" y="7" width="14" height="14"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nQv-Y6-U7g" secondAttribute="height" multiplier="1:1" id="XIl-Rp-NHx"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -128,8 +110,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRu-9U-A1v" userLabel="keyboard">
                         <rect key="frame" x="0.0" y="222.5" width="375" height="444.5"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-3y-6MP">
-                                <rect key="frame" x="56" y="40.5" width="74.5" height="74.5"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-3y-6MP" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="55" y="40" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,15 +119,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="XYs-GF-s9W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-BT-9eb">
-                                <rect key="frame" x="150.5" y="40.5" width="75" height="74.5"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-BT-9eb" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="150" y="40" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HJZ-BT-9eb" secondAttribute="height" multiplier="1:1" id="1VR-Td-HwG"/>
                                 </constraints>
@@ -156,15 +135,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="vLv-Z7-c4R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cog-Nd-UYd">
-                                <rect key="frame" x="245.5" y="40.5" width="74.5" height="74.5"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cog-Nd-UYd" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="245" y="40" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,15 +148,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="kUY-ac-H1J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJn-a6-MYe">
-                                <rect key="frame" x="56" y="131.5" width="74.5" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJn-a6-MYe" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="55" y="131" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="4">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -188,15 +161,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="vVP-wW-7UM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sva-ss-Jmv">
-                                <rect key="frame" x="150" y="131.5" width="75" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sva-ss-Jmv" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="150" y="131" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="5">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,15 +174,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="4M3-s9-Shf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uve-ti-7ya">
-                                <rect key="frame" x="245.5" y="131.5" width="74.5" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uve-ti-7ya" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="245" y="131" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="6">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -220,15 +187,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="6ST-Wn-yxf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAE-1L-zxN">
-                                <rect key="frame" x="56" y="222.5" width="74.5" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAE-1L-zxN" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="55" y="222" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="7">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,15 +200,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="I4e-kV-iez"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abq-s3-wbI">
-                                <rect key="frame" x="150" y="222.5" width="75" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abq-s3-wbI" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="150" y="222" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="8">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,15 +213,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="VeO-5Y-HF2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKD-qE-N40">
-                                <rect key="frame" x="245.5" y="222.5" width="74.5" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKD-qE-N40" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="245" y="222" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="9">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -268,15 +226,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="tam-0v-T01"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEL-KO-vKM">
-                                <rect key="frame" x="245" y="314" width="74.5" height="74.5"/>
+                                <rect key="frame" x="245" y="313" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -288,8 +243,8 @@
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="LXj-tf-Iwj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQB-bP-FZg">
-                                <rect key="frame" x="150" y="313.5" width="75" height="75"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQB-bP-FZg" customClass="PinIndicator" customModule="PasscodeLock" customModuleProvider="target">
+                                <rect key="frame" x="150" y="313" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="0">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,15 +252,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.66812671800000001" green="0.79767667949999999" blue="0.2358612618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="kRoundKey"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="keyboardPressed:" destination="eZb-O9-KwV" eventType="touchUpInside" id="SKt-zf-xYu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-9Q-OSg">
-                                <rect key="frame" x="55.5" y="314" width="74.5" height="74.5"/>
+                                <rect key="frame" x="55" y="313" width="75" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
