@@ -47,7 +47,7 @@ public class AppLocker: UIViewController {
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet weak var submessageLabel: UILabel!
   @IBOutlet var pinIndicators: [Indicator]!
-  @IBOutlet weak var cancelButton: Button!
+  @IBOutlet weak var cancelButton: UIButton!
 
   static let valet = Valet.valet(with: Identifier(nonEmpty: "Druidia")!, accessibility: .whenUnlockedThisDeviceOnly)  
   // MARK: - Pincode
