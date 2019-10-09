@@ -23,6 +23,6 @@ AppLocker - simple lock screen for iOS Application
 
   s.dependency 'Valet'
 
-  s.swift_version = '4.0'	
+  s.swift_version = '5.0'	
 
 end

@@ -23,7 +23,7 @@ enum ALMode { // Modes for AppLocker
 
 ### Configuration
 ```swift
-struct ALAppearance { // The structure used to display the controller
+struct ALOptions { // The structure used to display the controller
   var title: String?
   var subtitle: String?
   var image: UIImage?
@@ -40,12 +40,22 @@ AppLocker.present(with: .create) // validate, deactive, change
 ```
 #### Calling the controller with configuration
 ```swift
-    var appearance = ALAppearance()
-    appearance.image = UIImage(named: "face")!
-    appearance.title = "Devios Ryasnoy"
-    appearance.isSensorsEnabled = true
+    var options = ALOptions()
+    options.image = UIImage(named: "face")!
+    options.title = "Devios Ryasnoy"
+    options.isSensorsEnabled = true
+    options.onSuccessfulDismiss = { (mode: ALMode?) in
+        if let mode = mode {
+            print("Password \(String(describing: mode))d successfully")
+        } else {
+            print("User Cancelled")
+        }
+    }
+    options.onFailedAttempt = { (mode: ALMode?) in
+        print("Failed to \(String(describing: mode))")
+    }
 
-    AppLocker.present(with: mode, and: appearance)
+    AppLocker.present(with: mode, and: appearance, over: self)
 ```
 
 ## Requirements
