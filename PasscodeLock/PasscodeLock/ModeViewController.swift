@@ -28,12 +28,21 @@ class ModeViewController: UIViewController {
   
   func pin(_ mode: ALMode) {
     
-    var appearance = ALAppearance()
-    appearance.image = UIImage(named: "face")!
-    appearance.title = "Devios Ryasnoy"
-    appearance.isSensorsEnabled = true
-    
-    AppLocker.present(with: mode, and: appearance)
+    var options = ALOptions()
+    options.image = UIImage(named: "face")!
+    options.title = "Devios Ryasnoy"
+    options.isSensorsEnabled = true
+    options.onSuccessfulDismiss = { (mode: ALMode?) in
+        if let mode = mode {
+            print("Password \(String(describing: mode))d successfully")
+        } else {
+            print("User Cancelled")
+        }
+    }
+    options.onFailedAttempt = { (mode: ALMode?) in
+        print("Failed to \(String(describing: mode))")
+    }
+    AppLocker.present(with: mode, and: options, over: self)
   }
 
 }

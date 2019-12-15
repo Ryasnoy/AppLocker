@@ -136,7 +136,7 @@
 					7C1F833C1EA6276A0017CDD5 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 34SL6966R8;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -146,6 +146,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -352,7 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -372,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
