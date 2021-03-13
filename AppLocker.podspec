@@ -21,7 +21,6 @@ AppLocker - simple lock screen for iOS Application
   s.source       = { :git => "https://github.com/Ryasnoy/AppLocker.git", :tag => "#{s.version}" }
   s.source_files = "Source/**/*.{xib,swift}"
 
-  s.dependency 'Valet'
 
   s.swift_version = '5.0'	
 

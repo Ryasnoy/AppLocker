@@ -9,7 +9,6 @@
 import UIKit
 import AudioToolbox
 import LocalAuthentication
-import Valet
 
 public enum ALConstants {
     static let nibName = "AppLocker"
@@ -52,8 +51,7 @@ public class AppLocker: UIViewController {
     @IBOutlet weak var submessageLabel: UILabel!
     @IBOutlet var pinIndicators: [Indicator]!
     @IBOutlet weak var cancelButton: UIButton!
-    
-    static let valet = Valet.valet(with: Identifier(nonEmpty: "Druidia")!, accessibility: .whenUnlockedThisDeviceOnly)
+
     // MARK: - Pincode
     private var onSuccessfulDismiss: onSuccessfulDismissCallback?
     private var onFailedAttempt: onFailedAttemptCallback?
@@ -63,11 +61,11 @@ public class AppLocker: UIViewController {
     private var isFirstCreationStep = true
     private var savedPin: String? {
         get {
-            return AppLocker.valet.string(forKey: ALConstants.kPincode)
+            UserDefaults.standard.string(forKey:  ALConstants.kPincode)
         }
         set {
             guard let newValue = newValue else { return }
-            AppLocker.valet.set(string: newValue, forKey: ALConstants.kPincode)
+            UserDefaults.standard.set(newValue, forKey: ALConstants.kPincode)
         }
     }
     
@@ -170,8 +168,8 @@ public class AppLocker: UIViewController {
         }
     }
     
-    private func removePin() {
-        AppLocker.valet.removeObject(forKey: ALConstants.kPincode)
+    private func removePin() {        
+        UserDefaults.standard.removeObject(forKey: ALConstants.kPincode)
         dismiss(animated: true) {
             self.onSuccessfulDismiss?(self.mode)
         }
