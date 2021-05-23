@@ -3,7 +3,7 @@
 ![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org)
 [![Platform](http://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
-[![Twitter](https://img.shields.io/badge/twitter-@ryasn0y-blue.svg?maxAge=2592000)](http://twitter.com/ryasn0y)
+[![Twitter](https://img.shields.io/badge/twitter-@beqance-blue.svg?maxAge=2592000)](http://twitter.com/beqance)
 
 # AppLocker
 Very simple locker for your `iOS` application
