@@ -12,8 +12,6 @@ final class AppLockerViewModel: ObservableObject {
     let headerConfiguration: HeaderConfiguration?
     let appLockerConfiguration: AppLockerConfiguration?
     
-    private let keychainer = Keychainer(serviceName: "\(AppLocker.self)")
-    
     @PasswordStorage(key: "password", defaultValue: nil)
     var password: String?
     
