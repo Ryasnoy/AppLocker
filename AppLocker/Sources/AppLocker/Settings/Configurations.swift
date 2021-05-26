@@ -13,7 +13,7 @@ public struct HeaderConfiguration {
     public let image: Image?
     public let title: String?
     public let subtitle: String?
-
+    
 }
 
 public struct AppLockerConfiguration {
@@ -23,6 +23,10 @@ public struct AppLockerConfiguration {
     
     public let isSensorsEnabled: Bool
     public let codeLength: Int
+    
+    public static let `default` = AppLockerConfiguration(backgroundColor: .white,
+                                                         buttonBorderColor: .black,
+                                                         isSensorsEnabled: false, codeLength: 4)
     
 }
 

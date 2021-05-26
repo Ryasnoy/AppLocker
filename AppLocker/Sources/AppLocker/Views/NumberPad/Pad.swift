@@ -13,7 +13,7 @@ struct Pad: View {
 
     var body: some View {
         Text(data)
-            .frame(width: 100, height: 100)
+            .frame(width: 75, height: 75)
             .background(Circle().strokeBorder())
     }
 
