@@ -9,7 +9,21 @@ import Foundation
 
 protocol Moderator {}
 
-struct CreatePassword: Moderator {
+class CreatePassword: Moderator {
+    
+    var isFirstStep = true
+    let codeLength: Int = 4
+    
+    func canBeSaved(with currentInputLength: Int, then: @escaping () -> Void) {
+        let isAllowedLength = codeLength == currentInputLength
+        if isAllowedLength {
+            if isFirstStep {
+                isFirstStep.toggle()
+            } else {
+                then()
+            }
+        }
+    }
     
 }
 

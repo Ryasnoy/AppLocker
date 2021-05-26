@@ -35,7 +35,7 @@ final class AppLockerViewModel: ObservableObject {
          appLockerMode: AppLockerMode) {
         self.headerConfiguration = headerConfiguration
         self.appLockerConfiguration = appLockerConfiguration
-        moderator = appLockerMode.mode.getModerator()
+        moderator = Mode.create.getModerator()//appLockerMode.mode.getModerator()
     }
     
 }
@@ -75,6 +75,9 @@ private extension AppLockerViewModel {
     func updateCurrentInputPassword(with number: Int) {
         if currentCodeLength < codeLength {
             currentInputPassword.append(number.description)
+        }        
+        (moderator as! CreatePassword).canBeSaved(with: currentCodeLength) {
+            print(self.currentInputPassword, " Will be saved")
         }
     }
     
