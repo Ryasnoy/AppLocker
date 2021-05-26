@@ -7,16 +7,20 @@
 
 import SwiftUI
 
-struct TestView: View {
+public struct TestView: View {
     
-    var body: some View {
-//        AppLocker(headerConfiguration: .init(image: nil,
-//                                             title: "Hello",
-//                                             subtitle: nil),
-//                  appLockerConfiguration: .init(backgroundColor: Color.blue,
-//                                                buttonBorderColor: Color.orange,
-//                                                isSensorsEnabled: true,
-//                                                codeLength: 4))
+    public init() {
+        
+    }
+    
+    public var body: some View {
+        //        AppLocker(headerConfiguration: .init(image: nil,
+        //                                             title: "Hello",
+        //                                             subtitle: nil),
+        //                  appLockerConfiguration: .init(backgroundColor: Color.blue,
+        //                                                buttonBorderColor: Color.orange,
+        //                                                isSensorsEnabled: true,
+        //                                                codeLength: 4))
         
         AppLocker(.init(view: Rectangle()
                             .foregroundColor(.yellow)

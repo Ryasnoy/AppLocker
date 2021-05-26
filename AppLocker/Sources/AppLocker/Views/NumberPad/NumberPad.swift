@@ -11,6 +11,8 @@ struct NumberPad: View {
     
     let spacing: CGFloat = 16
     
+    let output: (String) -> ()
+    
     let data = [
         ["1", "2", "3"],
         ["4", "5", "6"],
@@ -28,9 +30,17 @@ struct NumberPad: View {
     
     func row(with rowData: [String]) -> some View {
         HStack(spacing: spacing) {
-            ForEach(rowData, id: \.self) { data in
-                Pad(data: data)
+            ForEach(rowData, id: \.self) { text in
+                pad(text)
             }
         }
+    }
+    
+    func pad(_ text: String) -> some View {
+        Pad(data: text)
+            .contentShape(Circle())
+            .onTapGesture {
+                output(text)
+            }
     }
 }

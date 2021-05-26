@@ -23,7 +23,9 @@ public struct AppLocker: View {
             GeometryReader { geometry in
                 VStack {
                     header(geometry)
-                    NumberPad()
+                    NumberPad { output in
+                        print("test", output)
+                    }
                 }
                 .frame(width: geometry.size.width)
             }
