@@ -9,12 +9,12 @@ import SwiftUI
 
 struct Pad: View {
     
-    let number: Int
-    
+    let data: String
+
     var body: some View {
-        Text(number.description)
+        Text(data)
             .frame(width: 100, height: 100)
             .background(Circle().strokeBorder())
     }
-    
+
 }

@@ -9,8 +9,13 @@ import SwiftUI
 
 struct Header: View {
     
+    let configuration: HeaderConfiguration?
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Image(systemName: "globe")
+            Text("Hello World")
+        }
     }
     
 }

@@ -9,25 +9,27 @@ import SwiftUI
 
 struct NumberPad: View {
     
-    let dataSource = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9],
-        [-1, 0, -1]
+    let spacing: CGFloat = 16
+    
+    let data = [
+        ["1", "2", "3"],
+        ["4", "5", "6"],
+        ["7", "8", "9"],
+        ["Cancel", "0", "Delete"]
     ]
     
     var body: some View {
-        VStack(spacing: 8) {
-            ForEach(dataSource, id: \.self) { data in
-                row(with: data)
+        VStack(spacing: spacing) {
+            ForEach(data, id: \.self) { rowData in
+                row(with: rowData)
             }
         }
     }
     
-    func row(with numbers: [Int]) -> some View {
-        HStack(spacing: 8) {
-            ForEach(numbers, id: \.self) { number in
-                Pad(number: number)
+    func row(with rowData: [String]) -> some View {
+        HStack(spacing: spacing) {
+            ForEach(rowData, id: \.self) { data in
+                Pad(data: data)
             }
         }
     }
