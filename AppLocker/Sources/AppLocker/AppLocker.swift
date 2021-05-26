@@ -3,7 +3,7 @@ import SwiftUI
 struct AppLocker: View {
     
     var body: some View {
-        Text("Hello")
+        NumberPad()
     }
     
 }
