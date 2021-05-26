@@ -20,5 +20,6 @@ public struct AppLockerConfiguration {
     
     public let backgroundColor: Color
     public let isSensorsEnabled: Bool
+    public let codeLength: Int
     
 }
