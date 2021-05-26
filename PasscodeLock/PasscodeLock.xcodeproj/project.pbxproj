@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		7C1F83481EA6276A0017CDD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83471EA6276A0017CDD5 /* Assets.xcassets */; };
 		7C1F834B1EA6276A0017CDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F83491EA6276A0017CDD5 /* LaunchScreen.storyboard */; };
 		7C3DA4F01ED2B9B500751DFB /* ModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */; };
+		D73915B8265E420F0045DA4B /* AppLocker in Frameworks */ = {isa = PBXBuildFile; productRef = D73915B7265E420F0045DA4B /* AppLocker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		7C1F834A1EA6276A0017CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C1F834C1EA6276A0017CDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3DA4E91ED2B9B500751DFB /* ModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeViewController.swift; path = PasscodeLock/ModeViewController.swift; sourceTree = SOURCE_ROOT; };
+		D73915B6265E414D0045DA4B /* AppLocker */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppLocker; path = ../AppLocker; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73915B8265E420F0045DA4B /* AppLocker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +75,7 @@
 		7C1F83341EA6276A0017CDD5 = {
 			isa = PBXGroup;
 			children = (
+				D73915B6265E414D0045DA4B /* AppLocker */,
 				7C1F833F1EA6276A0017CDD5 /* PasscodeLock */,
 				7C1F833E1EA6276A0017CDD5 /* Products */,
 				033EA5A521A7C24800703335 /* Frameworks */,
@@ -116,6 +120,9 @@
 			dependencies = (
 			);
 			name = PasscodeLock;
+			packageProductDependencies = (
+				D73915B7265E420F0045DA4B /* AppLocker */,
+			);
 			productName = PasscodeLock;
 			productReference = 7C1F833D1EA6276A0017CDD5 /* PasscodeLock.app */;
 			productType = "com.apple.product-type.application";
@@ -313,7 +320,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -329,8 +337,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PasscodeLock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -349,8 +360,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PasscodeLock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryasnoy.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -381,6 +395,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D73915B7265E420F0045DA4B /* AppLocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppLocker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C1F83351EA6276A0017CDD5 /* Project object */;
 }
