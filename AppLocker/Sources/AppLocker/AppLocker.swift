@@ -2,13 +2,12 @@ import SwiftUI
 
 public struct AppLocker: View {
     
-    private let headerConfiguration: HeaderConfiguration?
-    private let appLockerConfiguration: AppLockerConfiguration?
+    @ObservedObject var viewModel: AppLockerViewModel
     
     public init(headerConfiguration: HeaderConfiguration? = nil,
                 appLockerConfiguration: AppLockerConfiguration? = nil) {
-        self.headerConfiguration = headerConfiguration
-        self.appLockerConfiguration = appLockerConfiguration
+        viewModel = .init(headerConfiguration: headerConfiguration,
+                          appLockerConfiguration: appLockerConfiguration)
     }
     
     public var body: some View {
@@ -27,7 +26,7 @@ public struct AppLocker: View {
 private extension AppLocker {
     
     func header(_ geometry: GeometryProxy) -> some View {
-        Header(configuration: headerConfiguration)
+        Header(configuration: viewModel.headerConfiguration)
             .frame(height: geometry.size.height * 0.33)
     }
     
