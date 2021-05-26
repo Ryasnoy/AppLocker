@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import struct Keychainer.Keychain
 
 final class AppLockerViewModel: ObservableObject {
     
     let headerConfiguration: HeaderConfiguration?
     let appLockerConfiguration: AppLockerConfiguration
     
-    @PasswordStorage(key: "password", defaultValue: nil)
+    @Keychain(key: "password", defaultValue: nil)
     private var password: String?
     
     private lazy var currentInputPassword = "" {
