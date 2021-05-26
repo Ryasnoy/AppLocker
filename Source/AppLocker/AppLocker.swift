@@ -51,7 +51,7 @@ public class AppLocker: UIViewController {
     @IBOutlet weak var submessageLabel: UILabel!
     @IBOutlet var pinIndicators: [Indicator]!
     @IBOutlet weak var cancelButton: UIButton!
-
+    
     // MARK: - Pincode
     private var onSuccessfulDismiss: onSuccessfulDismissCallback?
     private var onFailedAttempt: onFailedAttemptCallback?
@@ -169,7 +169,7 @@ public class AppLocker: UIViewController {
     }
     
     private func removePin() {
-//        AppLocker.valet.removeObject(forKey: ALConstants.kPincode)
+        //        AppLocker.valet.removeObject(forKey: ALConstants.kPincode)
         dismiss(animated: true) {
             self.onSuccessfulDismiss?(self.mode)
         }
@@ -264,9 +264,9 @@ public extension AppLocker {
     class func present(with mode: ALMode, and config: ALOptions? = nil, over viewController: UIViewController? = nil) {
         let vc = viewController ?? UIApplication.shared.keyWindow?.rootViewController
         guard let root = vc,
-            
-            let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
-                return
+              
+              let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
+            return
         }
         locker.messageLabel.text = config?.title ?? ""
         locker.submessageLabel.text = config?.subtitle ?? ""
