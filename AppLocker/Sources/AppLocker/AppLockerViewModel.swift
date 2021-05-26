@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Keychainer
 
 final class AppLockerViewModel: ObservableObject {
     
@@ -15,27 +14,13 @@ final class AppLockerViewModel: ObservableObject {
     
     private let keychainer = Keychainer(serviceName: "\(AppLocker.self)")
     
-    var code: String? {
-        get {
-            return keychainer.string(forKey: Keychainer.codeKey)
-        }
-        set {
-            guard let newValue = newValue else { return }
-            keychainer.set(newValue, forKey: Keychainer.codeKey)
-        }
-    }
-    
+    @PasswordStorage(key: "password", defaultValue: nil)
+    var password: String?
     
     init(headerConfiguration: HeaderConfiguration? = nil,
          appLockerConfiguration: AppLockerConfiguration? = nil) {
         self.headerConfiguration = headerConfiguration
-        self.appLockerConfiguration = appLockerConfiguration    
+        self.appLockerConfiguration = appLockerConfiguration
     }
 
-}
-
-private extension Keychainer {
-    
-    static let codeKey = "codeKey"
-    
 }
