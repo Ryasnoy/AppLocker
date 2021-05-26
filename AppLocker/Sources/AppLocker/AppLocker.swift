@@ -10,11 +10,11 @@ public struct AppLocker: View {
                 appLockerConfiguration: AppLockerConfiguration = .default,
                 mode: AppLockerMode = .default) {
         viewModel = .init(headerConfiguration: headerConfiguration,
-                          appLockerConfiguration: appLockerConfiguration)
+                          appLockerConfiguration: appLockerConfiguration, appLockerMode: mode)
     }
     
     public init(_ header: CustomHeader<AnyView>, mode: AppLockerMode = .default) {
-        viewModel = .init(appLockerConfiguration: .default)
+        viewModel = .init(appLockerConfiguration: .default, appLockerMode: mode)
         self.header = header
     }
     

@@ -28,10 +28,14 @@ final class AppLockerViewModel: ObservableObject {
         appLockerConfiguration.codeLength
     }
     
+    let moderator: Moderator
+    
     init(headerConfiguration: HeaderConfiguration? = nil,
-         appLockerConfiguration: AppLockerConfiguration) {
+         appLockerConfiguration: AppLockerConfiguration,
+         appLockerMode: AppLockerMode) {
         self.headerConfiguration = headerConfiguration
         self.appLockerConfiguration = appLockerConfiguration
+        moderator = appLockerMode.mode.getModerator()
     }
     
 }
@@ -73,5 +77,10 @@ private extension AppLockerViewModel {
             currentInputPassword.append(number.description)
         }
     }
+    
+}
+
+// MARK: - Modes
+private extension AppLockerViewModel {
     
 }
