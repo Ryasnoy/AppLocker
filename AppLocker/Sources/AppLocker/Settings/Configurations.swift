@@ -10,16 +10,24 @@ import SwiftUI
 
 public struct HeaderConfiguration {
     
-    public let image: Image
-    public let title: String
-    public let subtitle: String
+    public let image: Image?
+    public let title: String?
+    public let subtitle: String?
 
 }
 
 public struct AppLockerConfiguration {
     
-    public let backgroundColor: Color
+    public let backgroundColor: Color?
+    public let buttonBorderColor: Color?
+    
     public let isSensorsEnabled: Bool
     public let codeLength: Int
+    
+}
+
+public struct CustomHeader<Content: View> {
+    
+    public let view: Content
     
 }

@@ -17,4 +17,5 @@ final class AppLockerViewModel: ObservableObject {
         self.headerConfiguration = headerConfiguration
         self.appLockerConfiguration = appLockerConfiguration
     }
+    
 }
