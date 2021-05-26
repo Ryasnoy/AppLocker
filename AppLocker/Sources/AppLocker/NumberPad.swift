@@ -12,7 +12,8 @@ struct NumberPad: View {
     let dataSource = [
         [1, 2, 3],
         [4, 5, 6],
-        [7, 8, 9]
+        [7, 8, 9],
+        [-1, 0, -1]
     ]
     
     var body: some View {
@@ -26,9 +27,7 @@ struct NumberPad: View {
     func row(with numbers: [Int]) -> some View {
         HStack(spacing: 8) {
             ForEach(numbers, id: \.self) { number in
-                Text(number.description)
-                    .frame(width: 100, height: 100)
-                    .background(Circle().strokeBorder())
+                Pad(number: number)
             }
         }
     }
