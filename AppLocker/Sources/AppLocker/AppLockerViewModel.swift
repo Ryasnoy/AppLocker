@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Keychainer
 
 final class AppLockerViewModel: ObservableObject {
     
@@ -17,5 +18,5 @@ final class AppLockerViewModel: ObservableObject {
         self.headerConfiguration = headerConfiguration
         self.appLockerConfiguration = appLockerConfiguration
     }
-    
+
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Keychainer",
+        "repositoryURL": "https://github.com/Ryasnoy/Keychainer",
+        "state": {
+          "branch": "master",
+          "revision": "0908bc7dec9f22866f270089b221cacf28649433",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
