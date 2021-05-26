@@ -7,11 +7,20 @@
 
 import Foundation
 
-public enum AppLockerMode {
+public enum Mode {
     
     case create
     case validate
     case change
     case deactive
+
+}
+
+public struct AppLockerMode {
     
+    let mode: Mode
+    let message: String
+    
+    
+    public static let `default` = AppLockerMode(mode: .validate, message: "")
 }
